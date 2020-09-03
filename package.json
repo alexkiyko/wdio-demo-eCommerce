@@ -1,0 +1,43 @@
+{
+  "name": "wdio-demo-eCommerce",
+  "version": "1.0.0",
+  "description": "Demo UI Test Automation Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run clean && wdio wdio.conf.js && npm run report",
+    "report": "allure generate --clean && allure open",
+    "clean": "rm -rf allure-results"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexkiyko/wdio-demo-eCommerce.git"
+  },
+  "keywords": [
+    "wdio",
+    "e2e",
+    "test automation"
+  ],
+  "author": "Alexander Kiyko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexkiyko/wdio-demo-eCommerce/issues"
+  },
+  "homepage": "https://github.com/alexkiyko/wdio-demo-eCommerce#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/register": "^7.10.3",
+    "@wdio/cli": "^6.4.5",
+    "@wdio/local-runner": "^6.4.5",
+    "@wdio/mocha-framework": "^6.4.0",
+    "@wdio/selenium-standalone-service": "^6.1.14",
+    "@wdio/spec-reporter": "^6.4.0",
+    "@wdio/sync": "^6.4.5",
+    "@wdio/allure-reporter": "^6.1.22",
+    "allure-commandline": "^2.13.0"
+  },
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
+}
