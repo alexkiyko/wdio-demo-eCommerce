@@ -39,7 +39,7 @@ exports.config = {
 
     bail: 0,
 
-    baseUrl: 'https://likejean.github.io/homework-5/',
+    baseUrl: 'http://automationpractice.com',
 
     waitforTimeout: 10000,
 
