@@ -1,5 +1,5 @@
-import HomePage from '../pageObjects/Home.page';
-import ProductsPage from './../pageObjects/Products.page';
+import HomePage from '../../pageObjects/Home.page';
+import ProductsPage from '../../pageObjects/Products.page';
 
 describe('', function () {
   it('should ', function () {
