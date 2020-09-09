@@ -1,10 +1,17 @@
+import Utils from './../../helpers/utils';
+
 class Footer {
-  get newsletterEmailInput() { return $('//input[@id="newsletter-input"]'); }
-  get submitEmailBtn() { return $('//button[@name="submitNewsletter"]'); }
+  get newsletterEmailInput() {
+    return $('//input[@id="newsletter-input"]');
+  }
+
+  get submitEmailBtn() {
+    return $('//button[@name="submitNewsletter"]');
+  }
 
   newsletterSubscription(email) {
-    this.newsletterEmailInput.setValue(email);
-    this.submitEmailBtn.click();
+    Utils.setValue(this.newsletterEmailInput, email);
+    Utils.click(this.submitEmailBtn);
   }
 }
 

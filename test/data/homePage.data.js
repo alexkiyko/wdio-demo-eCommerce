@@ -1,9 +1,9 @@
 const homePageData = {
-  newsletterSubscriptionAlert : {
+  newsletterSubscriptionAlert: {
     success: 'Newsletter : You have successfully subscribed to this newsletter.',
-    error : {
-      "already registered" :'Newsletter : This email address is already registered.',
-      "invalid email" : 'Newsletter : Invalid email address.'
+    error: {
+      registeredEmail: 'Newsletter : This email address is already registered.',
+      invalidEmail: 'Newsletter : Invalid email address.'
     }
   }
 };

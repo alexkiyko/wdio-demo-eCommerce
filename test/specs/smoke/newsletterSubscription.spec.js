@@ -1,49 +1,32 @@
 import { expect } from 'chai';
 import HomePage from "../../pageObjects/Home.page";
 import Footer from '../../pageObjects/components/Footer';
+import Utils from './../../helpers/utils';
 import homePageData from './../../data/homePage.data';
 
-describe('', function () {
-  before('', function () {
+describe('Newsletter Subscription Functionality', function () {
+  before('Open Home Page', function () {
     HomePage.open();
   });
 
-  it('success', function () {
-    Footer.newsletterSubscription('one4@gmail.com');
-
-    browser.waitUntil(
-      () => HomePage.newsletterSubscriptionAlert.getText() === homePageData.newsletterSubscriptionAlert.success,
-      {
-        timeout: 2000
-    });
-
-    expect(HomePage.newsletterSubscriptionAlert.getText()).eq(
-      homePageData.newsletterSubscriptionAlert.success)
+  it('Verify subscription success (unregistered email)', function () {
+    Footer.newsletterSubscription('one1sdd1fhg34@gmail.com');
+    expect(() => Utils.waitForExpectedText(
+      HomePage.newsletterSubscriptionAlert, homePageData.newsletterSubscriptionAlert.success))
+      .to.not.throw();
   });
 
-  it('error already reg', function () {
-    Footer.newsletterSubscription('one4@gmail.com');
-
-    browser.waitUntil(
-      () => HomePage.newsletterSubscriptionAlert.getText() === homePageData.newsletterSubscriptionAlert.error["already registered"],
-      {
-        timeout: 2000
-      });
-
-    expect(HomePage.newsletterSubscriptionAlert.getText()).eq(
-      homePageData.newsletterSubscriptionAlert.error["already registered"])
+  it('Verify error displayed (registered email)', function () {
+    Footer.newsletterSubscription('one6@gmail.com');
+    expect(() => Utils.waitForExpectedText(
+      HomePage.newsletterSubscriptionAlert, homePageData.newsletterSubscriptionAlert.error.registeredEmail))
+      .to.not.throw();
   });
 
-  it('invalid emal', function () {
-    Footer.newsletterSubscription('one1222');
-
-    browser.waitUntil(
-      () => HomePage.newsletterSubscriptionAlert.getText() === homePageData.newsletterSubscriptionAlert.error["invalid email"],
-      {
-        timeout: 2000
-      });
-
-    expect(HomePage.newsletterSubscriptionAlert.getText()).eq(
-      homePageData.newsletterSubscriptionAlert.error["invalid email"])
+  it('Verify error displayed (invalid email)', function () {
+    Footer.newsletterSubscription('onh2');
+    expect(() => Utils.waitForExpectedText(
+      HomePage.newsletterSubscriptionAlert, homePageData.newsletterSubscriptionAlert.error.invalidEmail))
+      .to.not.throw();
   });
 });
