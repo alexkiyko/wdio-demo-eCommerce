@@ -3,18 +3,20 @@ import ProductsPage from '../../pageObjects/Products.page';
 
 describe('', function () {
   it('should ', function () {
+    browser.maximizeWindow();
     HomePage.open();
     browser.pause(2000);
 
-    HomePage.menuWomenBtn.click();
-    browser.pause(3000);
+    // HomePage.menuWomenBtn.click();
+    $('//div[@id="block_top_menu"]/ul/li[3]').click();
+    browser.pause(2000);
 
-    ProductsPage.viewList.scrollIntoView();
-    ProductsPage.viewList.click();
+    ProductsPage.viewListBtn.scrollIntoView();
+    ProductsPage.viewListBtn.click();
     browser.pause(2000);
 
     // ProductsPage.addToCartBtn.scrollIntoView();
-    ProductsPage.addToCartBtn[1].click();
+    ProductsPage.addToCartBtn[0].click();
     browser.pause(10000);
   });
 });
