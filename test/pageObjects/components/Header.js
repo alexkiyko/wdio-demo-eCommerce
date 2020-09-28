@@ -11,7 +11,7 @@ class Header {
     return $('//a[@class="login"]');
   }
 
-  get menuWomenBtn() {
+  get menuWomenProductsBtn() {
     return $('//a[@title="Women"]');
   }
 }
