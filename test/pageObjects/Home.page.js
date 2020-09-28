@@ -6,7 +6,7 @@ class HomePage extends BasePage {
   }
 
   open() {
-    super.open('http://automationpractice.com/');
+    super.open('/');
   }
 }
 
