@@ -1,31 +1,34 @@
+import { assert } from 'chai';
+
 class Utils {
   addValue(element, value) {
     this.waitForDisplayed(element);
     this.tryAction(() => element.addValue(value),
-      `Failed to add value: '${value}' to '${element.selector}'`);
+      `Failed to add value: ${value} to selector: ${element.selector}`);
   }
 
   clearValue(element) {
     this.waitForDisplayed(element);
     this.tryAction(() => element.clearValue(),
-      `Failed to clear value in '${element.selector}'`);
+      `Failed to clear value in selector: ${element.selector}`);
   }
 
   setValue(element, value) {
     this.waitForDisplayed(element);
     this.tryAction(() => element.setValue(value),
-      `Failed to set value: '${value}' to '${element.selector}'`);
+      `Failed to set value: '${value}' to selector: ${element.selector}`);
   }
 
   getText(element) {
     this.waitForDisplayed(element);
-    return this.tryAction(() => element.getText(), `Failed to get text from element '${element.selector}'`);
+    return this.tryAction(() => element.getText(), `Failed to get text from element, \n ` +
+      `selector: ${element.selector}`);
   }
 
   click(element) {
     this.waitForEnabled(element);
     this.tryAction(() => element.click(),
-      `Failed to click on '${element.selector}'`);
+      `Failed to click on element, selector: ${element.selector}`);
   }
 
   isEnabled(element) {
@@ -37,7 +40,8 @@ class Utils {
     browser.waitUntil(() => element.getText() === expectedText,
   {
     timeout: 5000,
-    timeoutMsg: `Element didn't match expected text '${element.selector}'`
+    timeoutMsg: `Element didn't match Expected Text: ${expectedText} !== Actual Text: ${element.getText()} \n ` +
+      `selector: ${element.selector}`
     });
   }
 
@@ -45,7 +49,7 @@ class Utils {
     this.waitForDisplayed(element);
     element.waitForEnabled({
       timeout: 5000,
-      timeoutMsg: `Element not enabled '${element.selector}'`,
+      timeoutMsg: `Element not enabled, selector: ${element.selector}`,
     });
   }
 
@@ -58,14 +62,14 @@ class Utils {
     this.isExist(element);
     element.waitForDisplayed({
       timeout: 5000,
-      timeoutMsg: `Element not visible - '${element.selector}'`,
+      timeoutMsg: `Element not visible, selector: ${element.selector}`,
     });
   }
 
   isExist(element) {
     element.waitForExist({
       timeout: 5000,
-      timeoutMsg: `Element not exist '${element.selector}'`,
+      timeoutMsg: `Element not exist, selector: ${element.selector}`,
     });
   }
 
