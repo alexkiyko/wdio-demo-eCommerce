@@ -17,22 +17,21 @@ exports.config = {
             maxInstances: 1,
             browserName: 'chrome',
             'goog:chromeOptions': {
-                // args: ['--window-size=1920,1440'],
                 excludeSwitches: ["enable-automation"],
                 prefs: {
                     language: 'english'
                 }
             }
         },
-        // {
-        //     maxInstances: 1,
-        //     browserName: 'firefox',
-        //     'moz:firefoxOptions': {
-        //         prefs: {
-        //             language: 'english'
-        //         }
-        //     }
-        // }
+        {
+            maxInstances: 1,
+            browserName: 'firefox',
+            'moz:firefoxOptions': {
+                prefs: {
+                    language: 'english'
+                }
+            }
+        }
     ],
 
     logLevel: 'error',
