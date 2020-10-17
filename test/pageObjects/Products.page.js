@@ -1,3 +1,5 @@
+import Utils from '../helpers/utils';
+
 class ProductsPage {
   get viewListBtn() {
     return $('//li[@id="list"]');
@@ -7,7 +9,7 @@ class ProductsPage {
     return $('//li[@id="grid"]');
   }
 
-  get headerText() {
+  get title() {
     return $('//span[@class="cat-name"]');
   }
 
@@ -29,6 +31,10 @@ class ProductsPage {
 
   productName(index) {
     return $$('//h5[@itemprop="name"]')[index];
+  }
+
+  viewProductsList() {
+    Utils.click(this.viewListBtn);
   }
 }
 
