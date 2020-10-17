@@ -1,3 +1,5 @@
+import Utils from '../../helpers/utils';
+
 class Header {
   get siteLogo() {
     return $('//div[@id="header_logo"]');
@@ -13,6 +15,10 @@ class Header {
 
   get menuWomenProductsBtn() {
     return $('//a[@title="Women"]');
+  }
+
+  goToWomenProducts() {
+    Utils.click(this.menuWomenProductsBtn);
   }
 }
 
