@@ -1,4 +1,10 @@
+import Utils from '../../helpers/utils';
+
 class ShoppingCartModalWindow {
+  get cartModalWindow() {
+    return $('//div[@id="layer_cart"]');
+  }
+
   get continueShoppingBtn() {
     return $('//span[contains(@class, "continue")]');
   }
